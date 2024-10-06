@@ -9,7 +9,7 @@ namespace MovieList.Models
         { }
 
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Genre> Genres { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,15 +38,6 @@ namespace MovieList.Models
                     Rating = 4,
                     GenreId = "R"
                 }
-            );
-            modelBuilder.Entity<Genre>().HasData(
-                new Genre { GenreId = "A", Name = "Action" },
-                new Genre { GenreId = "C", Name = "Comedy" },
-                new Genre { GenreId = "D", Name = "Drama" },
-                new Genre { GenreId = "H", Name = "Horror" },
-                new Genre { GenreId = "M", Name = "Musical" },
-                new Genre { GenreId = "R", Name = "RomCom" },
-                new Genre { GenreId = "S", Name = "SciFi" }
             );
         }
     }
