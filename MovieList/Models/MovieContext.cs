@@ -9,16 +9,26 @@ namespace MovieList.Models
         { }
 
         public DbSet<Movie> Movies { get; set; }
-
+        public DbSet<Genre> Genres { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Genre>().HasData(
+                 new Genre { GenreId = "A", Name = "Action" },
+                 new Genre { GenreId = "C", Name = "Comedy" },
+                 new Genre { GenreId = "D", Name = "Drama" },
+                 new Genre { GenreId = "H", Name = "Horror" },
+                 new Genre { GenreId = "M", Name = "Musical" },
+                 new Genre { GenreId = "R", Name = "RomCom" },
+                 new Genre { GenreId = "S", Name = "SciFi" }
+             );
+
             modelBuilder.Entity<Movie>().HasData(
                 new Movie
                 {
-                    MovieId = 4,
+                    MovieId = 1,
                     Name = "Casablanca",
-                    Year = 1943,
+                    Year = 1942,
                     Rating = 5,
                     GenreId = "D"
                 },
